@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main>
       <header className="topbar shell">
-        <Link className="brand" href="/" aria-label="AuraDigital ana sayfa">
+        <Link className="brand" href="/quicksite" aria-label="AuraDigital QuickSite ana sayfa">
           <span className="brand-mark">A<span>•</span></span>
           <span>auradigital</span>
         </Link>
@@ -23,7 +23,7 @@ export default function Home() {
         </nav>
         <div className="top-actions">
           <span className="language-pill">TR <span>⌄</span></span>
-          <Link className="button button-small" href="/builder">Siteni oluştur</Link>
+          <Link className="button button-small" href="/quicksite/builder">Siteni oluştur</Link>
         </div>
       </header>
 
@@ -33,7 +33,7 @@ export default function Home() {
           <h1>Hazır şablon.<br /><em>Senin içeriğin.</em><br />Kontrollü yayın.</h1>
           <p>İşletmen için profesyonel bir siteyi birkaç dakikada hazırla. Yayına alma kararı her zaman AuraDigital kontrolünde kalsın.</p>
           <div className="hero-actions">
-            <Link className="button" href="/builder">Ücretsiz taslağını başlat <span>→</span></Link>
+            <Link className="button" href="/quicksite/builder">Ücretsiz taslağını başlat <span>→</span></Link>
             <a className="text-link" href="#templates">Şablonları incele <span>↓</span></a>
           </div>
           <div className="trust-row">
@@ -83,7 +83,7 @@ export default function Home() {
         </div>
         <div className="template-grid">
           {templates.map((template, index) => (
-            <Link className={`template-card template-card-${index + 1}`} href={`/builder?template=${template.id}`} key={template.id}>
+            <Link className={`template-card template-card-${index + 1}`} href={`/quicksite/builder?template=${template.id}`} key={template.id}>
               <div className="template-topline"><span>{template.category}</span><b>{String(index + 1).padStart(2, "0")}</b></div>
               <div className="template-mock">
                 <div className="mock-nav"><b>{template.demoBrand}</b><i /><i /><i /></div>
@@ -114,18 +114,18 @@ export default function Home() {
           <h2>Hiçbir müşteri senden habersiz yayına çıkamaz.</h2>
           <p>Her yeni talep yönetim ekranında kırmızı noktayla görünür. Ödeme ve içerik kontrolünden sonra tek tıkla onaylarsın; durum yeşile döner ve müşterinin adresi açılır.</p>
           <ul><li><span className="status-dot pending" /> Kırmızı: ödeme veya onay bekliyor</li><li><span className="status-dot approved" /> Yeşil: onaylandı ve yayında</li></ul>
-          <Link className="button button-dark" href="/admin">Yönetim ekranı <span>→</span></Link>
+          <Link className="button button-dark" href="/admin/#quicksite">Yönetim ekranı <span>→</span></Link>
         </div>
         <div className="approval-demo">
           <div className="approval-header"><div><small>MÜŞTERİ TALEPLERİ</small><h3>Yayın kontrolü</h3></div><span>3 bekleyen</span></div>
-          {["Coffee 1", "Mira Güzellik", "Usta Teknik"].map((name, i) => <div className="client-row" key={name}><span className={`status-dot ${i === 2 ? "approved" : "pending"}`} /><div><b>{name}</b><small>quicksite.auradigital.ink/{name.toLowerCase().replace(/ /g, "-")}</small></div><em>{i === 2 ? "Yayında" : "Onayla →"}</em></div>)}
+          {["Coffee 1", "Mira Güzellik", "Usta Teknik"].map((name, i) => <div className="client-row" key={name}><span className={`status-dot ${i === 2 ? "approved" : "pending"}`} /><div><b>{name}</b><small>auradigital.ink/quicksite/{name.toLowerCase().replace(/ /g, "-")}</small></div><em>{i === 2 ? "Yayında" : "Onayla →"}</em></div>)}
         </div>
       </section>
 
       <footer className="footer shell">
         <div className="brand"><span className="brand-mark">A<span>•</span></span><span>auradigital</span></div>
         <p>İstanbul’dan işletmeler için hızlı, anlaşılır dijital deneyimler.</p>
-        <div><Link href="/builder">Site oluştur</Link><a href="mailto:hello@auradigital.ink">İletişim</a></div>
+        <div><Link href="/quicksite/builder">Site oluştur</Link><a href="mailto:hello@auradigital.ink">İletişim</a></div>
       </footer>
     </main>
   );
