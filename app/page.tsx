@@ -118,7 +118,7 @@ export default function Home() {
         </div>
         <div className="approval-demo">
           <div className="approval-header"><div><small>MÜŞTERİ TALEPLERİ</small><h3>Yayın kontrolü</h3></div><span>3 bekleyen</span></div>
-          {["Coffee 1", "Mira Güzellik", "Usta Teknik"].map((name, i) => <div className="client-row" key={name}><span className={`status-dot ${i === 2 ? "approved" : "pending"}`} /><div><b>{name}</b><small>auradigital.ink/{name.toLowerCase().replace(/ /g, "-")}</small></div><em>{i === 2 ? "Yayında" : "Onayla →"}</em></div>)}
+          {["Coffee 1", "Mira Güzellik", "Usta Teknik"].map((name, i) => <div className="client-row" key={name}><span className={`status-dot ${i === 2 ? "approved" : "pending"}`} /><div><b>{name}</b><small>quicksite.auradigital.ink/{name.toLowerCase().replace(/ /g, "-")}</small></div><em>{i === 2 ? "Yayında" : "Onayla →"}</em></div>)}
         </div>
       </section>
 
