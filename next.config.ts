@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  /* The AuraDigital Worker mounts this app below /quicksite. */
 };
 
 export default nextConfig;
