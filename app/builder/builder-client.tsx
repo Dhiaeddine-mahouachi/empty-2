@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+/* eslint-disable @next/next/no-html-link-for-pages -- mounted routes are owned by the AuraDigital proxy */
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { SitePreview } from "../../components/site-preview";
@@ -50,11 +50,11 @@ export default function BuilderClient() {
     finally { setSaving(false); }
   }
 
-  if (result.id) return <main className="submitted-page" dir={rtl ? "rtl" : "ltr"}><div className="submitted-card"><div className="submitted-icon"><span className="status-dot pending" /></div><span className="kicker">{text.received}</span><h1>{text.ready}<br />{text.waiting}</h1><p>{text.waitingText}</p><div className="submission-status"><span className="status-dot pending" /><div><b>{text.status}</b><small>auradigital.ink/quicksite/{result.slug}</small></div></div><div className="submitted-actions"><Link className="button button-dark" href={`/quicksite/preview/${result.id}`}>{text.view}</Link><Link className="text-link dark-text" href="/quicksite">{text.home}</Link></div></div></main>;
+  if (result.id) return <main className="submitted-page" dir={rtl ? "rtl" : "ltr"}><div className="submitted-card"><div className="submitted-icon"><span className="status-dot pending" /></div><span className="kicker">{text.received}</span><h1>{text.ready}<br />{text.waiting}</h1><p>{text.waitingText}</p><div className="submission-status"><span className="status-dot pending" /><div><b>{text.status}</b><small>auradigital.ink/quicksite/{result.slug}</small></div></div><div className="submitted-actions"><a className="button button-dark" href={`/quicksite/preview/${result.id}`}>{text.view}</a><a className="text-link dark-text" href="/quicksite">{text.home}</a></div></div></main>;
 
   return (
     <main className="studio-page">
-      <header className="studio-header"><Link className="brand" href="/quicksite"><span className="brand-mark">A<span>•</span></span><span>auradigital</span></Link><div className="studio-progress"><span className="done">1</span><i /><span className="done">2</span><i /><span>3</span><b>{text.live}</b></div><button className="button button-small" onClick={submit} disabled={saving}>{saving ? text.submitting : text.topSubmit}</button></header>
+      <header className="studio-header"><a className="brand" href="/quicksite"><span className="brand-mark">A<span>•</span></span><span>auradigital</span></a><div className="studio-progress"><span className="done">1</span><i /><span className="done">2</span><i /><span>3</span><b>{text.live}</b></div><button className="button button-small" onClick={submit} disabled={saving}>{saving ? text.submitting : text.topSubmit}</button></header>
       <div className="studio-layout">
         <aside className="editor-panel" dir={rtl ? "rtl" : "ltr"}>
           <div className="editor-heading"><span className="kicker">{text.studio}</span><h1>{text.title}</h1><p>{text.sub}</p></div>
