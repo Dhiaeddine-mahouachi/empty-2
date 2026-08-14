@@ -244,8 +244,9 @@ export async function POST(request: Request) {
       for (const row of answerRows.results ?? []) answerMap.set(`${row.player_id}:${row.category_index}`, row);
       const counts = new Map<string, number>();
       for (const row of answerRows.results ?? []) {
-        const key = String(row.normalized ?? "");
-        if (key) counts.set(key, (counts.get(key) ?? 0) + 1);
+        const normalized = String(row.normalized ?? "");
+        const duplicateKey = `${row.category_index}:${normalized}`;
+        if (normalized) counts.set(duplicateKey, (counts.get(duplicateKey) ?? 0) + 1);
       }
       const validity = body.validity && typeof body.validity === "object" ? body.validity : {};
       const pointsByPlayer = new Map<string, number>();
@@ -258,7 +259,8 @@ export async function POST(request: Request) {
           const row = answerMap.get(key);
           const answer = String(row?.answer ?? "").trim();
           const normalized = normalizeArabic(answer);
-          const duplicate = Boolean(normalized) && (counts.get(normalized) ?? 0) > 1;
+          const duplicateKey = `${categoryIndex}:${normalized}`;
+          const duplicate = Boolean(normalized) && (counts.get(duplicateKey) ?? 0) > 1;
           const correctLetter = startsWithLetter(answer, room.current_letter);
           const hostValid = validity[key] !== false;
           const points = answer && !duplicate && correctLetter && hostValid ? 1 : 0;
